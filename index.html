@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約フォーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <h1>予約システムへ<span class="break-word">ようこそ</span></h1>
+    </header>
+
+    <div class="container">
+        <form id="reservationForm" class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+            <label for="name" class="block text-sm font-medium text-gray-700">名前:</label>
+            <input type="text" id="name" required class="w-full mt-1 p-2 border border-gray-300 rounded-md">
+
+            <label for="date" class="block mt-3 text-sm font-medium text-gray-700">日付:</label>
+            <input type="date" id="date" required class="w-full mt-1 p-2 border border-gray-300 rounded-md">
+
+            <label for="time" class="block mt-3 text-sm font-medium text-gray-700">時間:</label>
+            <input type="time" id="time" required class="w-full mt-1 p-2 border border-gray-300 rounded-md">
+
+            <label for="email" class="block mt-3 text-sm font-medium text-gray-700">メール:</label>
+            <input type="email" id="email" required class="w-full mt-1 p-2 border border-gray-300 rounded-md">
+
+            <button type="submit" class="mt-4 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600">予約する</button>
+        </form>
+
+        <h2>予約一覧</h2>
+        <div id="reservationList" class="reservation-list"></div>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2025 予約サイト</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
