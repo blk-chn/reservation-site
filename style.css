@@ -41,6 +41,14 @@ input, button {
     border: 1px solid #ccc;
 }
 
+#time {
+    min-width: 80px;
+    padding: 7px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
 button {
     background-color: #28a745;
     color: white;
