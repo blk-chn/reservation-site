@@ -64,17 +64,18 @@ document.getElementById("reservationForm").addEventListener("submit", function(e
         const endHour = 18;
 
         for (let hour = startHour; hour <= endHour; hour++) {
-                for (let minute = 0; minute < 60; minute += 10)
+                for (let minute = 0; minute < 60; minute += 10) {
                 if (hour === endHour && minute > 0) break; //18:10以降は追加しない
-
-                const h = String(hour).padStart(2, "0");
-                const m = String(minute).padStart(2, "0");
-                const option = document.createElement("option");
-                option.value = `${h}:${m}`;
-                option.textContent = `${h}:${m}`;
-                timeSelect.appendChild(option);
-        }
-    });
+        
+                        const h = String(hour).padStart(2, "0");
+                        const m = String(minute).padStart(2, "0");
+                        const option = document.createElement("option");
+                        option.value = `${h}:${m}`;
+                        option.textContent = `${h}:${m}`;
+                        timeSelect.appendChild(option);
+                        }
+                }
+            });
 
     // ページ読み込み時に予約一覧を表示
     displayReservations();
