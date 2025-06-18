@@ -73,7 +73,6 @@ document.getElementById("reservationForm").addEventListener("submit", function(e
                 option.value = `${h}:${m}`;
                 option.textContent = `${h}:${m}`;
                 timeSelect.appendChild(option);
-                }
         }
     });
 
