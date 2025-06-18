@@ -57,22 +57,40 @@ document.getElementById("reservationForm").addEventListener("submit", function(e
 
     // 時間帯を制限
     document.addEventListener("DOMContentLoaded", function() {
-        let timeInput = document.getElementById("time");
+        const timeSelect = document.getElementById("time");
         
-        // 設定: 予約可能な時間帯（09:00～18:00）
-        timeInput.setAttribute("min", "09:00");
-        timeInput.setAttribute("max", "18:00");
-        timeInput.setAttribute("step", "900"); // 15分単位（900秒）
+        // 時間生成（9:00～18:00 10分単位）
+        const startHour = 9;
+        const endHour = 18;
+
+        for (let hour = startHour; hour <= endHour; hour++) {
+                if (hour === endHour && minute > 0) break; //18:10以降は追加しない
+
+                const h = String(hour).padStart(2, "0");
+                const m = String(minute).padStart(2, "0");
+                const option = document.createElement("option");
+                option.value = '${h}:${m}';
+                option.texContent = '${h}:${m}';
+                timeSelect.appendChild(option);
+        }
 
         // 許可されていない時間を選択した場合、修正する
         timeInput.addEventListener("change", function() {
-            let selectedTime = timeInput.value;
-            let hour = parseInt(selectedTime.split(":")[0]);
+            const selectedTime = timeInput.value;
+            if (!selectedTime) return;
 
-            if (hour < 9 || hour > 18) {
+            const [hour, minute] = selectedTime.split(":").map(Number);
+
+            if (hour < 9 || (hour === 18 && minute > 0) || hour > 18) {
                 alert("予約できる時間は 9:00 から 18:00 までです。");
                 timeInput.value = ""; // 不正な入力をリセット
+                    return;
             }
+        // 10分単位かどうかを判定
+                if (minute % 10 !== 0) {
+                        alert("時間は10分単位で指定してください");
+                        timeInput.value = "";
+                }
         });
     });
 
