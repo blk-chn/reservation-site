@@ -73,25 +73,7 @@ document.getElementById("reservationForm").addEventListener("submit", function(e
                 option.texContent = '${h}:${m}';
                 timeSelect.appendChild(option);
         }
-
-        // 許可されていない時間を選択した場合、修正する
-        timeInput.addEventListener("change", function() {
-            const selectedTime = timeInput.value;
-            if (!selectedTime) return;
-
-            const [hour, minute] = selectedTime.split(":").map(Number);
-
-            if (hour < 9 || (hour === 18 && minute > 0) || hour > 18) {
-                alert("予約できる時間は 9:00 から 18:00 までです。");
-                timeInput.value = ""; // 不正な入力をリセット
-                    return;
-            }
-        // 10分単位かどうかを判定
-                if (minute % 10 !== 0) {
-                        alert("時間は10分単位で指定してください");
-                        timeInput.value = "";
-                }
-        });
+    }
     });
 
     // ページ読み込み時に予約一覧を表示
