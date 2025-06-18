@@ -73,8 +73,8 @@ document.getElementById("reservationForm").addEventListener("submit", function(e
                 option.value = `${h}:${m}`;
                 option.textContent = `${h}:${m}`;
                 timeSelect.appendChild(option);
+                }
         }
-    }
     });
 
     // ページ読み込み時に予約一覧を表示
