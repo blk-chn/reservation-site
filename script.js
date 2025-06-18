@@ -64,7 +64,7 @@ document.getElementById("reservationForm").addEventListener("submit", function(e
         const endHour = 18;
 
         for (let hour = startHour; hour <= endHour; hour++) {
-                for (let minute = 0; minute < 60; minute += 10) {
+                for (let minute = 0; minute < 60; minute += 30) {
                 if (hour === endHour && minute > 0) break; //18:10以降は追加しない
         
                         const h = String(hour).padStart(2, "0");
